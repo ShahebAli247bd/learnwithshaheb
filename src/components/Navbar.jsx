@@ -30,7 +30,7 @@ const Header = () => {
     }, [darkMode]);
 
     return (
-        <header className="fixed z-10 w-full shadow-md bg-gradient-to-r to-gray-950 from-gray-900 dark:bg-white">
+        <header className="fixed z-10 w-full shadow-md bg-gradient-to-r to-gray-950 from-gray-900 bg-opacity-30 dark:bg-white">
             <div className="container flex items-center justify-between p-4 mx-auto">
                 {/* Logo */}
                 <div className="text-2xl font-bold text-white dark:text-white">

@@ -65,7 +65,14 @@ const HeroSection = () => {
 
     return (
         <section className="relative flex flex-col-reverse items-center justify-between pt-40 mx-auto overflow-hidden md:h-screen md:flex-row bg-gradient-to-r from-gray-900 to-gray-950">
-            <div className="absolute inset-0 bg-center bg-cover opacity-20"></div>
+            <div
+                className="absolute inset-0 bg-center bg-cover opacity-40"
+                style={{
+                    backgroundImage:
+                        "url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiNprdUiEteLCqaqlodiVMUt2V0ihrKNUNn013dYUh3_K0Wdi5_M2O46tW2Jili6hpRUcp3b4yaTnX0QytP_sZWTeBtDDyds47Zvp2fI7DukRTJa9wvUSDl6k3JCE6tC19MbiqrBgDvQv2XmRKMpd2sGlvW_xDbIoFbfijgvOcOX2CDdp_RjSSA7-PN8OI/w640-h640-rw/%E2%80%94Pngtree%E2%80%94%20blue%20light%20effect%20with_3732499.png')",
+                }}
+            ></div>
+
             <div className="container relative flex flex-col items-center justify-between mx-auto overflow-hidden md:flex-row">
                 <div className="relative w-full mb-6 md:w-1/2 md:mb-0">
                     <div
@@ -104,13 +111,13 @@ const HeroSection = () => {
             {/* Modal */}
             {isModalOpen && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="w-11/12 p-6 bg-white rounded md:w-1/3">
+                    <div className="w-11/12 p-6 text-white rounded bg-gradient-to-r from-gray-700 to-gray-800 md:w-1/3">
                         <h2 className="mb-4 text-xl font-bold">
                             Registration Form
                         </h2>
                         <form onSubmit={handleSubmit}>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Name
                                 </label>
                                 <input
@@ -123,7 +130,7 @@ const HeroSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Email
                                 </label>
                                 <input
@@ -136,7 +143,7 @@ const HeroSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Mobile Number
                                 </label>
                                 <input
@@ -149,7 +156,7 @@ const HeroSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Location
                                 </label>
                                 <input
@@ -162,7 +169,7 @@ const HeroSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Highest Education
                                 </label>
                                 <input
@@ -175,7 +182,7 @@ const HeroSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Course Type
                                 </label>
                                 <input
@@ -188,7 +195,7 @@ const HeroSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Course Fee
                                 </label>
                                 <input
@@ -201,7 +208,7 @@ const HeroSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Transaction Number
                                 </label>
                                 <input

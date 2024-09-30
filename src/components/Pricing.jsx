@@ -236,14 +236,14 @@ const PricingSection = () => {
             </div>
             {/* Modal */}
             {isModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-                    <div className="w-11/12 p-6 bg-white rounded md:w-1/3">
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 rounded drop-shadow-md">
+                    <div className="w-11/12 p-6 text-white rounded bg-gradient-to-r from-gray-700 to-gray-800 md:w-1/3">
                         <h2 className="mb-4 text-xl font-bold">
                             Registration Form
                         </h2>
                         <form onSubmit={handleSubmit}>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Name
                                 </label>
                                 <input
@@ -256,7 +256,7 @@ const PricingSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Email
                                 </label>
                                 <input
@@ -269,7 +269,7 @@ const PricingSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Mobile Number
                                 </label>
                                 <input
@@ -282,7 +282,7 @@ const PricingSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Location
                                 </label>
                                 <input
@@ -295,7 +295,7 @@ const PricingSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Highest Education
                                 </label>
                                 <input
@@ -308,7 +308,7 @@ const PricingSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Course Type
                                 </label>
                                 <input
@@ -321,7 +321,7 @@ const PricingSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Course Fee
                                 </label>
                                 <input
@@ -334,7 +334,7 @@ const PricingSection = () => {
                                 />
                             </div>
                             <div className="mb-4">
-                                <label className="block text-gray-700">
+                                <label className="block text-gray-100">
                                     Transaction Number
                                 </label>
                                 <input
@@ -365,7 +365,6 @@ const PricingSection = () => {
                     </div>
                 </div>
             )}
-            
         </section>
     );
 };

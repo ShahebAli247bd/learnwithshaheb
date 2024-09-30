@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 import sendEmail from './EmailJS'
+import logo from './../assets/logo.png'
 
 const Footer = () => {
     const [email, setEmail] = useState("");
@@ -25,6 +26,7 @@ const Footer = () => {
             <div className="container grid grid-cols-1 gap-8 mx-auto md:grid-cols-4">
                 {/* Column 1 - Logo */}
                 <div className="flex flex-col">
+                    <img src={logo} width={80} />
                     <h1 className="text-3xl font-bold">Learn with Shaheb</h1>
                     <p className="mt-4">
                         Master Email Template Design & Development
