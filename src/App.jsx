@@ -5,15 +5,15 @@ import Navbar from "./components/Navbar";
 import Features from "./components/Features"; // Your other sections
 import Projects from "./components/Projects";
 import Pricing from "./components/Pricing";
-import Contact from "./components/Contact";
 import HeroSection from "./components/HeroSection";
 import Testimonials from "./components/Testimonials";
+import Footer from "./components/Footer";
 
 function App() {
    
    
     return (
-        <div className="bg-white dark:bg-gray-900 text-black dark:text-white">
+        <div className="text-black bg-white dark:bg-gray-900 dark:text-white">
             <Navbar />
             <HeroSection />
             <Features />
@@ -21,7 +21,7 @@ function App() {
             <Pricing />
             <Testimonials />
 
-            <Contact />
+            <Footer />
         </div>
     );
 }
@@ -29,9 +29,9 @@ function App() {
 // FeatureCard Component
 const FeatureCard = ({ icon, title, description }) => {
     return (
-        <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition duration-300">
+        <div className="p-6 transition duration-300 transform bg-white rounded-lg shadow-lg dark:bg-gray-800 hover:shadow-2xl hover:scale-105">
             <i className={`${icon} text-4xl mb-4`}></i>
-            <h3 className="text-2xl font-semibold mb-2">{title}</h3>
+            <h3 className="mb-2 text-2xl font-semibold">{title}</h3>
             <p>{description}</p>
         </div>
     );
@@ -44,11 +44,11 @@ const ProjectCard = ({ openModal }) => {
             <img
                 src="https://via.placeholder.com/400"
                 alt="Project 1"
-                className="rounded-lg shadow-lg group-hover:shadow-2xl transform group-hover:scale-105 transition duration-300"
+                className="transition duration-300 transform rounded-lg shadow-lg group-hover:shadow-2xl group-hover:scale-105"
                 onClick={openModal}
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition duration-300">
-                <button className="px-4 py-2 bg-primary text-white rounded-lg">
+            <div className="absolute inset-0 flex items-center justify-center transition duration-300 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100">
+                <button className="px-4 py-2 text-white rounded-lg bg-primary">
                     View Project
                 </button>
             </div>

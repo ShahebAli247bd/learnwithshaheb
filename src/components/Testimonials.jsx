@@ -45,38 +45,38 @@ const TestimonialSection = () => {
      arrows: true,
      appendDots: (dots) => (
          <div style={{ display: "flex", justifyContent: "center" }}>
-             <ul style={{ margin: "0px" }}> {dots} </ul>
+             <ul style={{ margin: "0px" }} className="text-white"> {dots} </ul>
          </div>
      ),
  };
 
     return (
-        <section className="py-16 flex justify-center items-center">
+        <section className="flex items-center justify-center py-16 bg-gradient-to-r to-gray-950 from-gray-900">
             <div className="container mx-auto text-center">
-                <h2 className="text-4xl font-bold mb-8 text-darkblueish">
+                <h2 className="mb-8 text-4xl font-bold text-white">
                     What Our Students Say
                 </h2>
                 <Slider {...settings}>
                     {testimonialsList.map((testimonial) => (
                         <div
                             key={testimonial.id}
-                            className="flex flex-col items-center p-4 bg-white "
+                            className="flex flex-col items-center p-4 text-white"
                         >
                             <img
                                 src={testimonial.image}
                                 alt={testimonial.name}
-                                className="w-24 h-24 rounded-full border-2 mx-auto border-darkblueish mb-4"
+                                className="w-24 h-24 mx-auto mb-4 border-2 rounded-full border-darkblueish"
                             />
                             <h3 className="text-xl font-semibold">
                                 {testimonial.name}
                             </h3>
-                            <p className="text-gray-500 mb-2">
+                            <p className="mb-2 text-gray-300">
                                 {testimonial.designation}
                             </p>
-                            <p className="text-center italic mb-2">
+                            <p className="mb-2 italic text-center">
                                 "{testimonial.testimonial}"
                             </p>
-                            <p className="text-green-600 font-semibold">
+                            <p className="font-semibold text-green-600">
                                 — {testimonial.recommendation}
                             </p>
                         </div>

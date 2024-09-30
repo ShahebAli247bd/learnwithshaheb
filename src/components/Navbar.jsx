@@ -1,129 +1,157 @@
-// src/components/Navbar.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link as ScrollLink } from "react-scroll";
+import { FiMenu, FiX } from "react-icons/fi";
+import { FaMoon, FaSun } from "react-icons/fa"; // Icons for Dark/Light mode
+import logo from "../assets/logo.png";
+ 
 
-const Navbar = () => {
+const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [darkMode, setDarkMode] = useState(false);
 
+    // Toggle dark mode
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+        document.documentElement.classList.toggle("dark");
+    };
+
+    // Handle mobile menu toggle
     const toggleMenu = () => {
         setIsOpen(!isOpen);
- };
- const [darkMode, setDarkMode] = useState(false);
+    };
 
- const toggleDarkMode = () => {
-     setDarkMode(!darkMode);
-     document.documentElement.classList.toggle("dark", !darkMode);
- };
-
-
+    useEffect(() => {
+        // Add 'dark' class to the body when dark mode is enabled
+        if (darkMode) {
+            document.documentElement.classList.add("dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+        }
+    }, [darkMode]);
 
     return (
-        <nav className="bg-darkblueish text-white shadow-lg">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between h-16">
-                  
+        <header className="fixed z-10 w-full shadow-md bg-gradient-to-r to-gray-950 from-gray-900 dark:bg-white">
+            <div className="container flex items-center justify-between p-4 mx-auto">
+                {/* Logo */}
+                <div className="text-2xl font-bold text-white dark:text-white">
+                    <img
+                        src={logo} // Replace with your logo image URL
+                        alt="Logo"
+                        className="inline-block h-20"
+                    />
+                </div>
+
+                {/* Desktop Menu */}
+                <nav className="hidden space-x-8 md:flex">
+                    <ScrollLink
+                        to="about"
+                        smooth={true}
+                        duration={500}
+                        className="text-white cursor-pointer dark:text-white hover:text-lightblue"
+                    >
+                        About
+                    </ScrollLink>
+                    <ScrollLink
+                        to="projects"
+                        smooth={true}
+                        duration={500}
+                        className="text-white cursor-pointer dark:text-white hover:text-lightblue"
+                    >
+                        Projects
+                    </ScrollLink>
+                    <ScrollLink
+                        to="features"
+                        smooth={true}
+                        duration={500}
+                        className="text-white cursor-pointer dark:text-white hover:text-lightblue"
+                    >
+                        Features
+                    </ScrollLink>
+                    <ScrollLink
+                        to="#pricing"
+                        smooth={true}
+                        duration={500}
+                        className="text-white cursor-pointer dark:text-white hover:text-lightblue"
+                    >
+                        Pricing
+                    </ScrollLink>
+
+                    {/* Dark/Light mode toggle */}
                     <button
                         onClick={toggleDarkMode}
-                        className="ml-4 p-2 bg-lightblue text-white rounded-md"
+                        className="text-white dark:text-white"
                     >
-                        {darkMode ? "Light Mode" : "Dark Mode"}
+                        {darkMode ? <FaSun size={24} /> : <FaMoon size={24} />}
                     </button>
-                     
-                    <div className="flex">
-                        <div className="shrink-0 flex items-center">
-                            <h1 className="text-2xl font-bold">My Course</h1>
-                        </div>
-                        <div className="hidden md:flex space-x-4 ml-10">
-                            <a
-                                href="#features"
-                                className="hover:text-lightblue hover:drop-shadow-md"
-                            >
-                                Features
-                            </a>
-                            <a
-                                href="#projects"
-                                className="hover:text-lightblue hover:drop-shadow-md"
-                            >
-                                Projects
-                            </a>
-                            <a
-                                href="#pricing"
-                                className="hover:text-lightblue hover:drop-shadow-md"
-                            >
-                                Pricing
-                            </a>
-                            <a
-                                href="#contact"
-                                className="hover:text-lightblue hover:drop-shadow-md"
-                            >
-                                Contact
-                            </a>
-                        </div>
-                    </div>
-                    {/* Hamburger menu */}
-                    <div className="-mr-2 flex md:hidden">
-                        <button
-                            onClick={toggleMenu}
-                            className="inline-flex items-center justify-center p-2 rounded-md text-white hover:text-lightblue focus:outline-none focus:ring-2 focus:ring-inset focus:ring-lightblue"
-                        >
-                            <svg
-                                className="h-6 w-6"
-                                stroke="currentColor"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                            >
-                                {isOpen ? (
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M6 18L18 6M6 6l12 12"
-                                    />
-                                ) : (
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        strokeWidth="2"
-                                        d="M4 6h16M4 12h16M4 18h16"
-                                    />
-                                )}
-                            </svg>
-                        </button>
-                    </div>
+                </nav>
+
+                {/* Mobile Menu Button */}
+                <div className="md:hidden">
+                    <button
+                        onClick={toggleMenu}
+                        className="text-white dark:text-white"
+                    >
+                        {isOpen ? <FiX size={28} /> : <FiMenu size={28} />}
+                    </button>
                 </div>
             </div>
-            {/* Mobile Menu */}
+
+            {/* Mobile Menu Dropdown */}
             {isOpen && (
-                <div className="md:hidden">
-                    <div className="space-y-1 px-2 pt-2 pb-3 sm:px-3">
-                        <a
-                            href="#features"
-                            className="block text-white hover:bg-darkblueish-light hover:drop-shadow-md px-3 py-2 rounded-md text-base font-medium"
+                <div className="absolute left-0 w-full text-white shadow-md bg-gradient-to-r from-gray-950 to-gray-900 md:hidden dark:bg-gray-900 top-16">
+                    <nav className="flex flex-col items-center p-4 space-y-4">
+                        <ScrollLink
+                            to="about"
+                            smooth={true}
+                            duration={500}
+                            className="text-white cursor-pointer dark:text-white hover:text-lightblue"
+                            onClick={toggleMenu}
                         >
-                            Features
-                        </a>
-                        <a
-                            href="#projects"
-                            className="block text-white hover:bg-darkblueish-light hover:drop-shadow-md px-3 py-2 rounded-md text-base font-medium"
+                            About
+                        </ScrollLink>
+                        <ScrollLink
+                            to="projects"
+                            smooth={true}
+                            duration={500}
+                            className="text-white cursor-pointer dark:text-white hover:text-lightblue"
+                            onClick={toggleMenu}
                         >
                             Projects
-                        </a>
-                        <a
-                            href="#pricing"
-                            className="block text-white hover:bg-darkblueish-light hover:drop-shadow-md px-3 py-2 rounded-md text-base font-medium"
+                        </ScrollLink>
+                        <ScrollLink
+                            to="features"
+                            smooth={true}
+                            duration={500}
+                            className="text-white cursor-pointer dark:text-white hover:text-lightblue"
+                            onClick={toggleMenu}
+                        >
+                            Features
+                        </ScrollLink>
+                        <ScrollLink
+                            to="pricing"
+                            smooth={true}
+                            duration={500}
+                            className="text-white cursor-pointer dark:text-white hover:text-lightblue"
+                            onClick={toggleMenu}
                         >
                             Pricing
-                        </a>
-                        <a
-                            href="#contact"
-                            className="block text-white hover:bg-darkblueish-light hover:drop-shadow-md px-3 py-2 rounded-md text-base font-medium"
+                        </ScrollLink>
+                        {/* Dark/Light mode toggle in mobile */}
+                        <button
+                            onClick={toggleDarkMode}
+                            className="mt-4 text-white dark:text-white"
                         >
-                            Contact
-                        </a>
-                    </div>
+                            {darkMode ? (
+                                <FaSun size={24} />
+                            ) : (
+                                <FaMoon size={24} />
+                            )}
+                        </button>
+                    </nav>
                 </div>
             )}
-        </nav>
+        </header>
     );
 };
 
-export default Navbar;
+export default Header;

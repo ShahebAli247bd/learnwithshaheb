@@ -79,22 +79,22 @@ const ProjectSection = () => {
     };
 
     return (
-        <section className="py-20  text-white p-6  bg-gradient-to-r from-blue-900 to-blue-500">
-            <div className=" mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-12">
-                    Projects
+        <section className="p-6 py-20 text-white bg-gradient-to-r to-gray-950 from-gray-900">
+            <div className="px-4 mx-auto ">
+                <h2 className="mb-12 text-4xl font-bold text-center">
+                    Projects to be Done
                 </h2>
-                <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="container grid grid-cols-1 gap-8 mx-auto sm:grid-cols-2 lg:grid-cols-3">
                     {projects.map((project) => (
                         <div
                             key={project.id}
-                            className="relative overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105"
+                            className="relative overflow-hidden transition-transform transform rounded-lg shadow-lg hover:scale-105"
                             onClick={() => openModal(project)}
                         >
                             <img
                                 src={project.image}
                                 alt={project.title}
-                                className="w-full h-96 object-cover"
+                                className="object-cover w-full h-96"
                             />
                             <div className="p-4">
                                 <h3 className="text-xl font-semibold">
@@ -110,8 +110,8 @@ const ProjectSection = () => {
             {/* Modal */}
             {selectedProject && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
-                    <div className="bg-white text-darkblueish rounded-lg p-6 w-11/12 md:w-1/3">
-                        <h2 className="text-2xl font-bold mb-4">
+                    <div className="w-11/12 p-6 bg-white rounded-lg text-darkblueish md:w-1/3">
+                        <h2 className="mb-4 text-2xl font-bold">
                             {selectedProject.title}
                         </h2>
                         <p className="mb-4">{selectedProject.description}</p>
@@ -119,7 +119,7 @@ const ProjectSection = () => {
                             href={selectedProject.demoLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-white bg-darkblueish px-4 py-2 rounded"
+                            className="px-4 py-2 text-white rounded bg-darkblueish"
                         >
                             View Demo
                         </a>
